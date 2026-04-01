@@ -1,4 +1,5 @@
 import streamlit as st
+from utils import inject_css, sidebar_brand
 
 st.set_page_config(
     page_title="Notung — Signal over noise.",
@@ -6,4 +7,5 @@ st.set_page_config(
     layout="wide",
 )
 
-st.switch_page("pages/1_Home.py")
+inject_css()
+sidebar_brand()
