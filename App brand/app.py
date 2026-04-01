@@ -17,7 +17,15 @@ header {visibility: hidden;}
 [data-testid="stToolbar"] {display: none;}
 [data-testid="stDecoration"] {display: none;}
 [data-testid="stSidebar"] {display: none;}
-.block-container {padding: 0 !important; max-width: 100% !important;}
+.block-container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 .stApp {background: #F7F6F3;}
 
 /* FONT GLOBALS */
@@ -64,11 +72,10 @@ h1, h2, h3, h4, .coolvetica {
 
 /* SECTIONS */
 .section {
-  padding: 96px 10%;
-  min-height: 100vh;
+  padding: 56px 10% 40px 10%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .section-dark {
   background: #1B2A4A;
@@ -618,7 +625,7 @@ c1, c2, c3 = st.columns(3, gap="large")
 
 with c1:
     st.markdown("""
-    <div style="background:#FFFFFF; padding:0 0 40px 0;">
+    <div style="background:#FFFFFF; padding:20px 20px 32px 20px; border: 1px solid #E8E4DC;">
     <div class="col-title">Cosa manca</div>
     <ul class="body-text" style="list-style:none; padding:0;">
       <li style="margin-bottom:14px;"><strong>Insight dispersi</strong> — Fonti, note, transcript,
@@ -633,7 +640,7 @@ with c1:
 
 with c2:
     st.markdown("""
-    <div style="background:#FFFFFF; padding:0 0 40px 0;">
+    <div style="background:#FFFFFF; padding:20px 20px 32px 20px; border: 1px solid #E8E4DC;">
     <div class="col-title">L'offerta esistente</div>
     <ul class="body-text" style="list-style:none; padding:0;">
       <li style="margin-bottom:12px;">Bloomberg / Refinitiv / FactSet — dati standard, costo elevato
@@ -649,7 +656,7 @@ with c2:
 
 with c3:
     st.markdown("""
-    <div style="background:#FFFFFF; padding:0 0 40px 0;">
+    <div style="background:#FFFFFF; padding:20px 20px 32px 20px; border: 1px solid #E8E4DC;">
     <div class="col-title">I freni all'adozione</div>
     <ul class="body-text" style="list-style:none; padding:0;">
       <li style="margin-bottom:12px;"><strong>Black-box</strong> — Il 65% (survey Assogestioni 2025)
@@ -693,7 +700,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div style="background:#F7F6F3; padding: 0 10% 40px 10%;">
+<div style="background:#F7F6F3; padding: 0 0 40px 0;">
 <p class="body-text">
   Notung aiuta SGR, SIM e family office a trasformare una domanda di investimento in un segnale
   quantitativo proprietario, validato e immediatamente utilizzabile nel processo decisionale.
@@ -706,7 +713,7 @@ st.markdown("""
 vc1, vc2 = st.columns(2, gap="medium")
 with vc1:
     st.markdown("""
-    <div style="background:#F7F6F3; padding: 0 0 0 10%;">
+    <div style="background:#F7F6F3; padding: 0;">
     <div class="offer-card">
       <div class="offer-card-title">Custom Indices</div>
       <div class="offer-card-body">Progettazione e co-creazione di indici proprietari. L'IP resta al cliente.</div>
@@ -720,7 +727,7 @@ with vc1:
 
 with vc2:
     st.markdown("""
-    <div style="background:#F7F6F3; padding: 0 10% 0 0;">
+    <div style="background:#F7F6F3; padding: 0;">
     <div class="offer-card">
       <div class="offer-card-title">Piattaforme Alternative Data</div>
       <div class="offer-card-body">Analisi di testi, immagini, dati non strutturati integrati nel processo d'investimento.</div>
@@ -733,7 +740,7 @@ with vc2:
     """, unsafe_allow_html=True)
 
 st.markdown("""
-<div style="background:#F7F6F3; padding: 0 10% 80px 10%;">
+<div style="background:#F7F6F3; padding: 0 0 80px 0;">
 <div class="selling-wrap">
   <div class="selling-item">
     <div class="selling-icon">🔒</div>
@@ -843,7 +850,7 @@ phases = [
      None),
 ]
 
-timeline_html = '<div style="background:#F7F6F3; padding: 0 10% 40px 10%;">'
+timeline_html = '<div style="background:#F7F6F3; padding: 0 0 40px 60px;">'
 for num, title, duration, desc, note in phases:
     note_html = f'<div class="phase-note">⚠ {note}</div>' if note else ""
     timeline_html += f"""
@@ -858,7 +865,7 @@ for num, title, duration, desc, note in phases:
 timeline_html += "</div>"
 st.markdown(timeline_html, unsafe_allow_html=True)
 
-st.markdown('<p class="download-section-title" style="background:#F7F6F3; padding: 16px 10% 8px 10%;">Documentazione</p>', unsafe_allow_html=True)
+st.markdown('<p class="download-section-title" style="background:#F7F6F3; padding: 16px 0 8px 0;">Documentazione</p>', unsafe_allow_html=True)
 dl_man, _ = st.columns([1, 1], gap="medium")
 with dl_man:
     download_card(
@@ -997,11 +1004,9 @@ dora_qa = [
     ),
 ]
 
-st.markdown('<div style="background:#F7F6F3; padding: 0 10% 80px 10%;">', unsafe_allow_html=True)
 for q, a in dora_qa:
     with st.expander(q):
         st.markdown(a)
-st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
