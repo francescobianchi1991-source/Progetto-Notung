@@ -9,3 +9,6 @@ st.set_page_config(
 
 inject_css()
 sidebar_brand()
+
+st.title("NOTUNG")
+st.markdown("*Signal over noise.*")
